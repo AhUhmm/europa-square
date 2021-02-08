@@ -12,6 +12,7 @@
 
     <body style="margin: 0; overflow: hidden">
         <a-scene
+            vr-mode-ui="enabled: false"
             renderer="logarithmicDepthBuffer: true;"
             embedded
             loading-screen="enabled: false;"
@@ -20,17 +21,20 @@
             <a-assets>
                 <a-asset-item
                     id="animated-asset"
-                    src="assets/asset.glb"
+                    src="assets/EU_02_soloFede.glb"
                 ></a-asset-item>
             </a-assets>
 
+            <!-- Roma -->
             <a-entity
+                look-at="latitude: 41.790660; longitude: 12.424380"
                 animation-mixer="loop: repeat"
                 gltf-model="#animated-asset"
                 scale="1.0 1.0 1.0"
                 gps-entity-place="latitude: 41.790586; longitude: 12.42314;"
             ></a-entity>
 
+            <!-- Egina -->
             <a-entity
                 animation-mixer="loop: repeat"
                 gltf-model="#animated-asset"
@@ -38,6 +42,7 @@
                 gps-entity-place="latitude: 42.918788; longitude: 12.725061;"
             ></a-entity>
 
+            <!-- Foligno, Piazza Garibaldi -->
             <a-entity
                 animation-mixer="loop: repeat"
                 gltf-model="#animated-asset"
@@ -48,7 +53,7 @@
             <a-camera
                 look-controls-enabled="false"
                 arjs-look-controls="smoothingFactor: 0.1"
-                gps-camera="gpsMinDistance: 5"
+                gps-camera="gpsMinDistance: 1"
                 rotation-reader
             ></a-camera>
         </a-scene>
