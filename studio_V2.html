@@ -16,7 +16,7 @@
             renderer="logarithmicDepthBuffer: true;"
             embedded
             loading-screen="enabled: false;"
-            arjs="sourceType: webcam; debugUIEnabled: false;"
+            arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
         >
             <a-assets>
                 <a-asset-item
@@ -53,7 +53,7 @@
             <a-camera
                 look-controls-enabled="false"
                 arjs-look-controls="smoothingFactor: 0.1"
-                gps-camera="gpsMinDistance: 1"
+                gps-camera="aleet: true; gpsMinDistance: 1; gpsTimeInterval: 1500"
                 rotation-reader
             ></a-camera>
         </a-scene>
