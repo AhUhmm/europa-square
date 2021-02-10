@@ -32,25 +32,43 @@
 
     <body style="margin: 0; overflow: hidden">
         <script>
+            AFRAME.registerComponent("clickvideo", {
+                init: function () {
+                    var sceneEl = document
+                        .querySelector("a-scene")
+                        .querySelector("a-assets");
+                    var video = sceneEl.querySelector("video");
+                    this.el.addEventListener(
+                        "click",
+                        function () {
+                            this.video.play();
+                        }.bind(this)
+                    );
+                },
+            });
+        </script>
+        <script>
             window.onload = function () {
                 AFRAME.registerComponent("videohandler", {
                     init: function () {
-                        var marker = this.el;
+                        var sceneAssets = document
+                            .querySelector("a-scene")
+                            .querySelector("a-assets");
+                        var video = sceneEl.querySelector("video");
+                        var totem = document.getElementById("roma");
 
-                        this.vid = document.querySelector("#video");
-
-                        marker.addEventListener(
-                            "",
+                        totem.addEventListener(
+                            "play",
                             function () {
-                                this.vid.play();
+                                this.video.play();
                             }.bind(this)
                         );
 
-                        marker.addEventListener(
-                            "",
+                        totem.addEventListener(
+                            "pause",
                             function () {
-                                this.vid.pause();
-                                this.vid.currentTime = 0;
+                                this.video.pause();
+                                this.video.currentTime = 0;
                             }.bind(this)
                         );
                     },
@@ -87,6 +105,7 @@
             <!-- Roma -->
 
             <a-entity
+                id="roma"
                 look-at="1 1 1"
                 animation-mixer="loop: repeat"
                 gltf-model="#animated-asset"
