@@ -8,34 +8,7 @@
         <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
         <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-        <!-- <script>
-            window.onload = function () {
-                AFRAME.registerComponent("videohandler", {
-                    init: function () {
-                        var sceneAssets = document
-                            .querySelector("a-scene")
-                            .querySelector("a-assets");
-                        var video = sceneAssets.querySelector("video");
-                        var totem = document.getElementById("roma");
-
-                        totem.addEventListener(
-                            "play",
-                            function () {
-                                this.video.play();
-                            }.bind(this)
-                        );
-
-                        totem.addEventListener(
-                            "pause",
-                            function () {
-                                this.video.pause();
-                                this.video.currentTime = 0;
-                            }.bind(this)
-                        );
-                    },
-                });
-            };
-        </script> -->
+        <!-- <script src"videohandler.js"></script> -->
         <style>
             .arjs-loader {
                 height: 100%;
@@ -91,12 +64,10 @@
             <!-- Roma -->
 
             <a-entity
-                videohandler
                 id="roma"
-                look-at="1 1 1"
                 animation-mixer="loop: repeat"
                 gltf-model="#animated-asset"
-                scale="1.2 1.2 1.2"
+                scale="1.4 1.4 1.4"
                 gps-entity-place="latitude: 41.790390; longitude: 12.423205;"
                 ><a-video
                     src="#video"
@@ -112,16 +83,32 @@
             <a-entity
                 animation-mixer="loop: repeat"
                 gltf-model="#animated-asset"
-                scale="1.0 1.0 1.0"
+                scale="1.4 1.4 1.4"
                 gps-entity-place="latitude: 42.918788; longitude: 12.725061;"
+                ><a-video
+                    src="#video"
+                    width="1.6"
+                    height="0.9"
+                    position="0.035 0.9 0"
+                    rotation="0 90 0"
+                    play="true"
+                ></a-video
             ></a-entity>
 
             <!-- Foligno, Piazza Garibaldi -->
             <a-entity
                 animation-mixer="loop: repeat"
                 gltf-model="#animated-asset"
-                scale="1.0 1.0 1.0"
+                scale="1.4 1.4 1.4"
                 gps-entity-place="latitude: 42.957330; longitude: 12.706542;"
+                ><a-video
+                    src="#video"
+                    width="1.6"
+                    height="0.9"
+                    position="0.035 0.9 0"
+                    rotation="0 90 0"
+                    play="true"
+                ></a-video
             ></a-entity>
 
             <a-camera
