@@ -32,29 +32,13 @@
 
     <body style="margin: 0; overflow: hidden">
         <script>
-            AFRAME.registerComponent("clickvideo", {
-                init: function () {
-                    var sceneEl = document
-                        .querySelector("a-scene")
-                        .querySelector("a-assets");
-                    var video = sceneEl.querySelector("video");
-                    this.el.addEventListener(
-                        "click",
-                        function () {
-                            this.video.play();
-                        }.bind(this)
-                    );
-                },
-            });
-        </script>
-        <script>
             window.onload = function () {
                 AFRAME.registerComponent("videohandler", {
                     init: function () {
                         var sceneAssets = document
                             .querySelector("a-scene")
                             .querySelector("a-assets");
-                        var video = sceneEl.querySelector("video");
+                        var video = sceneAsstes.querySelector("video");
                         var totem = document.getElementById("roma");
 
                         totem.addEventListener(
@@ -75,9 +59,11 @@
                 });
             };
         </script>
+
         <div class="arjs-loader">
             <div>Loading, please wait...</div>
         </div>
+
         <a-scene
             vr-mode-ui="enabled: false"
             loading-screen="enabled: false;"
@@ -105,6 +91,7 @@
             <!-- Roma -->
 
             <a-entity
+                videohandler
                 id="roma"
                 look-at="1 1 1"
                 animation-mixer="loop: repeat"
