@@ -8,9 +8,58 @@
         <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
         <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+        <style>
+            .arjs-loader {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.8);
+                z-index: 9999;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .arjs-loader div {
+                text-align: center;
+                font-size: 1.25em;
+                color: white;
+            }
+        </style>
     </head>
 
     <body style="margin: 0; overflow: hidden">
+        <script>
+            window.onload = function () {
+                AFRAME.registerComponent("videohandler", {
+                    init: function () {
+                        var marker = this.el;
+
+                        this.vid = document.querySelector("#video");
+
+                        marker.addEventListener(
+                            "",
+                            function () {
+                                this.vid.play();
+                            }.bind(this)
+                        );
+
+                        marker.addEventListener(
+                            "",
+                            function () {
+                                this.vid.pause();
+                                this.vid.currentTime = 0;
+                            }.bind(this)
+                        );
+                    },
+                });
+            };
+        </script>
+        <div class="arjs-loader">
+            <div>Loading, please wait...</div>
+        </div>
         <a-scene
             vr-mode-ui="enabled: false"
             loading-screen="enabled: false;"
@@ -24,8 +73,12 @@
                     src="assets/EU_05.gltf"
                 ></a-asset-item>
                 <video
+                    preload="auto"
                     id="video"
-                    autoplay
+                    crossorigin
+                    webkit-playsinline
+                    playsinline
+                    controls
                     loop="true"
                     src="assets/EU_VideoTest.mp4"
                 ></video>
@@ -68,7 +121,7 @@
             <a-camera
                 look-controls-enabled="false"
                 arjs-look-controls="smoothingFactor: 0.1"
-                gps-camera="alert: true; positionMinAccuracy: 10; gpsMinDistance: 3; gpsTimeInterval: 3000"
+                gps-camera="alert: true; positionMinAccuracy: 10; gpsMinDistance: 2; gpsTimeInterval: 1500"
                 rotation-reader
             ></a-camera>
         </a-scene>
