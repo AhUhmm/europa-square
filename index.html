@@ -32,17 +32,16 @@
         </style>
     </head>
 
-    <script>
-        AFRAME.registerComponent("clickhandler", {
-            init: function () {
-                this.el.addEventListener("click", () => {
-                    alert("Clicked!");
-                });
-            },
-        });
-    </script>
-
     <body style="margin: 0; overflow: hidden">
+        <script>
+            AFRAME.registerComponent("clickhandler", {
+                init: function () {
+                    this.el.addEventListener("click", () => {
+                        alert("Clicked!");
+                    });
+                },
+            });
+        </script>
         <div class="arjs-loader">
             <div>Loading, please wait...</div>
         </div>
@@ -123,11 +122,27 @@
                 ></a-video
             ></a-entity>
 
+            <!-- Cannara -->
+            <a-entity
+                animation-mixer="loop: repeat"
+                gltf-model="#animated-asset"
+                scale="1.4 1.4 1.4"
+                gps-entity-place="latitude: 42.994244; longitude: 12.582387;"
+                ><a-video
+                    src="#video"
+                    width="1.4"
+                    height="0.787"
+                    position="0.035 0.9 0.03"
+                    rotation="0 90 0"
+                    play="true"
+                ></a-video
+            ></a-entity>
+
             <a-camera
+                rotation-reader
                 look-controls-enabled="false"
                 arjs-look-controls="smoothingFactor: 0.1"
                 gps-camera="alert: true; positionMinAccuracy: 10; gpsMinDistance: 2; gpsTimeInterval: 2000"
-                rotation-reader
             ></a-camera>
         </a-scene>
     </body>
