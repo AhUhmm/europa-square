@@ -3,14 +3,22 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+        />
         <meta name="apple-mobile-web-app-capable" content="yes" />
+
         <title>Europa Square - V2</title>
+        <!-- include A-Frame -->
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <!-- include Supermedium look-at component for A-Frame -->
         <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+        <!-- include ar.js for A-Frame -->
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+        <!-- include loaders component for A-Frame -->
         <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
-        <!-- <script src"videohandler.js"></script> -->
         <style>
             .arjs-loader {
                 height: 100%;
@@ -47,19 +55,23 @@
         >
             <a-assets>
                 <a-asset-item
-                    id="animated-asset"
+                    id="totem-blu"
+                    src="assets/EU_04_BLU.gltf"
+                ></a-asset-item>
+                <a-asset-item
+                    id="totem-color"
                     src="assets/EU_04_BLU.gltf"
                 ></a-asset-item>
                 <video
-                    src="assets/ujevic.mp4"
+                    crossorigin="anonymous"
                     preload="auto"
-                    id="video"
-                    response-type="arraybuffer"
-                    loop
-                    crossorigin
+                    autoplay="true"
+                    muted="true"
+                    loop="true"
                     webkit-playsinline
-                    autoplay
                     playsinline
+                    id="video"
+                    src="video/ujevic.mp4"
                 ></video>
             </a-assets>
 
@@ -70,7 +82,7 @@
                 clickhandler
                 id="roma"
                 animation-mixer="loop: repeat"
-                gltf-model="#animated-asset"
+                gltf-model="#totem-blu"
                 scale="1.4 1.4 1.4"
                 gps-entity-place="latitude: 41.790390; longitude: 12.423205;"
                 ><a-video
@@ -84,7 +96,7 @@
                 ><a-entity
                     look-at="#main"
                     animation-mixer="loop: repeat"
-                    gltf-model="#animated-asset"
+                    gltf-model="#totem-color"
                     position="0 0 8"
                     rotation="0 180 0"
                     scale="1.4 1.4 1.4"
@@ -101,7 +113,7 @@
             <!-- Egina -->
             <a-entity
                 animation-mixer="loop: repeat"
-                gltf-model="#animated-asset"
+                gltf-model="#totem-blu"
                 scale="1.4 1.4 1.4"
                 gps-entity-place="latitude: 42.918788; longitude: 12.725061;"
                 ><a-video
@@ -117,7 +129,7 @@
             <!-- Foligno, Piazza Garibaldi -->
             <a-entity
                 animation-mixer="loop: repeat"
-                gltf-model="#animated-asset"
+                gltf-model="#totem-blu"
                 scale="1.4 1.4 1.4"
                 gps-entity-place="latitude: 42.957330; longitude: 12.706542;"
                 ><a-video
@@ -133,7 +145,7 @@
             <!-- Cannara -->
             <a-entity
                 animation-mixer="loop: repeat"
-                gltf-model="#animated-asset"
+                gltf-model="#totem-blu"
                 scale="1.4 1.4 1.4"
                 gps-entity-place="latitude: 42.994244; longitude: 12.582387;"
                 ><a-video
