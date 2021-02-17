@@ -81,7 +81,7 @@
                     loop="true"
                     webkit-playsinline
                     playsinline
-                    id="video1"
+                    id="video2"
                     src="./video/EU_VideoTest.mp4"
                 ></video>
             </a-assets>
@@ -156,12 +156,29 @@
 
             <!-- Cannara -->
             <a-entity
+                id="cannara01"
                 animation-mixer="loop: repeat"
                 gltf-model="#totem-blu"
                 scale="1.4 1.4 1.4"
                 gps-entity-place="latitude: 42.994244; longitude: 12.582387;"
                 ><a-video
-                    src="#video"
+                    src="#video1"
+                    width="1.4"
+                    height="0.787"
+                    position="0.035 0.9 0.03"
+                    rotation="0 90 0"
+                    play="true"
+                ></a-video
+            ></a-entity>
+
+            <a-entity
+                id="cannara01"
+                animation-mixer="loop: repeat"
+                gltf-model="#totem-colori"
+                scale="1.4 1.4 1.4"
+                gps-entity-place="latitude: 42.994244; longitude: 12.582300;"
+                ><a-video
+                    src="#video2"
                     width="1.4"
                     height="0.787"
                     position="0.035 0.9 0.03"
