@@ -66,7 +66,7 @@
                 <video
                     crossorigin="anonymous"
                     preload="auto"
-                    autoplay="true"
+                    autoplay
                     muted="true"
                     response-type="arraybuffer"
                     loop
@@ -78,7 +78,7 @@
                 <video
                     crossorigin="anonymous"
                     preload="auto"
-                    autoplay="true"
+                    autoplay
                     muted="true"
                     response-type="arraybuffer"
                     loop
@@ -99,7 +99,6 @@
                 scale="1.4 1.4 1.4"
                 gps-entity-place="latitude: 41.790390; longitude: 12.423205;"
                 ><a-entity
-                    videohandler
                     material="src: #video1;"
                     geometry="primitive: plane"
                     position="0.035 0.9 0.03"
@@ -116,13 +115,77 @@
                 scale="1.4 1.4 1.4"
                 gps-entity-place="latitude: 41.790278; longitude: 12.423110;"
                 ><a-entity
-                    videohandler
                     material="src: #video2;"
                     geometry="primitive: plane"
                     position="0.035 0.9 0.03"
                     rotation="0 90 0"
                     scale="1.4 0.787 0"
                 ></a-entity
+            ></a-entity>
+
+            <!-- Egina -->
+            <a-entity
+                animation-mixer="loop: repeat"
+                gltf-model="#totem-blu"
+                scale="1.4 1.4 1.4"
+                gps-entity-place="latitude: 42.918788; longitude: 12.725061;"
+                ><a-video
+                    src="#video"
+                    width="1.4"
+                    height="0.787"
+                    position="0.035 0.9 0.03"
+                    rotation="0 90 0"
+                    play="true"
+                ></a-video
+            ></a-entity>
+
+            <!-- Foligno, Piazza Garibaldi -->
+            <a-entity
+                animation-mixer="loop: repeat"
+                gltf-model="#totem-blu"
+                scale="1.4 1.4 1.4"
+                gps-entity-place="latitude: 42.957330; longitude: 12.706542;"
+                ><a-video
+                    src="#video"
+                    width="1.4"
+                    height="0.787"
+                    position="0.035 0.9 0.03"
+                    rotation="0 90 0"
+                    play="true"
+                ></a-video
+            ></a-entity>
+
+            <!-- Cannara -->
+            <a-entity
+                id="cannara01"
+                animation-mixer="loop: repeat"
+                gltf-model="#totem-blu"
+                scale="1.4 1.4 1.4"
+                gps-entity-place="latitude: 42.994244; longitude: 12.582387;"
+                ><a-video
+                    src="#video1"
+                    width="1.4"
+                    height="0.787"
+                    position="0.035 0.9 0.03"
+                    rotation="0 90 0"
+                    play="true"
+                ></a-video
+            ></a-entity>
+
+            <a-entity
+                id="cannara02"
+                animation-mixer="loop: repeat"
+                gltf-model="#totem-colori"
+                scale="1.4 1.4 1.4"
+                gps-entity-place="latitude: 42.994244; longitude: 12.582300;"
+                ><a-video
+                    src="#video2"
+                    width="1.4"
+                    height="0.787"
+                    position="0.035 0.9 0.03"
+                    rotation="0 90 0"
+                    play="true"
+                ></a-video
             ></a-entity>
 
             <a-camera
