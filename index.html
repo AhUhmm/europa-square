@@ -9,17 +9,19 @@
         />
         <meta name="apple-mobile-web-app-capable" content="yes" />
 
-        <title>Europa Square - V2</title>
+        <title>EU Playground</title>
         <!-- include A-Frame -->
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <!-- include Supermedium look-at component for A-Frame -->
         <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
         <!-- include ar.js for A-Frame -->
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <!-- include loaders component for A-Frame -->
         <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-        <!-- include loaders component for A-Frame -->
+        <!-- script to play and pause video -->
         <script src="./js/video-handler.js"></script>
+        <!-- script to play and pause audio -->
+        <script src="./js/audio-handler.js"></script>
         <style>
             .arjs-loader {
                 height: 100%;
@@ -48,33 +50,33 @@
         </div>
 
         <a-scene
+            audiohandler
             vr-mode-ui="enabled: false"
             loading-screen="enabled: false;"
             renderer="logarithmicDepthBuffer: true;"
             embedded
             arjs="sourceType: webcam; debugUIEnabled: false;"
         >
+            <!-- Assets -->
             <a-assets>
                 <a-asset-item
-                    id="totem-blu"
+                    id="totem"
                     src="./assets/EU_04_BLU.gltf"
                 ></a-asset-item>
-                <a-asset-item
-                    id="totem-color"
-                    src="./assets/EU_04_COLOR.gltf"
-                ></a-asset-item>
+
                 <video
                     crossorigin="anonymous"
                     preload="auto"
                     autoplay
-                    muted="true"
+                    muted
                     response-type="arraybuffer"
                     loop
                     webkit-playsinline
                     playsinline
                     id="video1"
-                    src="./video/ujevic.mp4"
+                    src="./video/herman.mp4"
                 ></video>
+
                 <video
                     crossorigin="anonymous"
                     preload="auto"
@@ -85,114 +87,48 @@
                     webkit-playsinline
                     playsinline
                     id="video2"
-                    src="./video/EU_VideoTest.mp4"
+                    src="./video/ujevic.mp4"
                 ></video>
             </a-assets>
 
-            <!-- Roma -->
-
-            <a-entity
-                id="roma"
-                animation-mixer="loop: repeat"
-                gltf-model="#totem-blu"
-                rotation="0 180 0"
-                scale="1.4 1.4 1.4"
-                gps-entity-place="latitude: 41.790390; longitude: 12.423205;"
-                ><a-entity
-                    material="src: #video1;"
-                    geometry="primitive: plane"
-                    position="0.035 0.9 0.03"
-                    rotation="0 90 0"
-                    scale="1.4 0.787 0"
-                ></a-entity
-            ></a-entity>
-
-            <a-entity
-                id="roma-2"
-                animation-mixer="loop: repeat"
-                gltf-model="#totem-color"
-                position="0 0 6"
-                scale="1.4 1.4 1.4"
-                gps-entity-place="latitude: 41.790278; longitude: 12.423110;"
-                ><a-entity
-                    material="src: #video2;"
-                    geometry="primitive: plane"
-                    position="0.035 0.9 0.03"
-                    rotation="0 90 0"
-                    scale="1.4 0.787 0"
-                ></a-entity
-            ></a-entity>
-
             <!-- Egina -->
             <a-entity
-                animation-mixer="loop: repeat"
-                gltf-model="#totem-blu"
+                gltf-model="#totem"
+                rotation="0 180 0"
                 scale="1.4 1.4 1.4"
-                gps-entity-place="latitude: 42.918788; longitude: 12.725061;"
-                ><a-video
-                    src="#video"
-                    width="1.4"
-                    height="0.787"
-                    position="0.035 0.9 0.03"
+                gps-entity-place="latitude: 42.918750; longitude: 12.724888;"
+                ><a-entity
+                    videohandler
+                    id="main"
+                    material="src: #video1;"
+                    geometry="primitive: plane"
+                    position="0.035 0.9 0.02"
                     rotation="0 90 0"
-                    play="true"
-                ></a-video
-            ></a-entity>
-
-            <!-- Foligno, Piazza Garibaldi -->
-            <a-entity
-                animation-mixer="loop: repeat"
-                gltf-model="#totem-blu"
-                scale="1.4 1.4 1.4"
-                gps-entity-place="latitude: 42.957330; longitude: 12.706542;"
-                ><a-video
-                    src="#video"
-                    width="1.4"
-                    height="0.787"
-                    position="0.035 0.9 0.03"
-                    rotation="0 90 0"
-                    play="true"
-                ></a-video
-            ></a-entity>
-
-            <!-- Cannara -->
-            <a-entity
-                id="cannara01"
-                animation-mixer="loop: repeat"
-                gltf-model="#totem-blu"
-                scale="1.4 1.4 1.4"
-                gps-entity-place="latitude: 42.994244; longitude: 12.582387;"
-                ><a-video
-                    src="#video1"
-                    width="1.4"
-                    height="0.787"
-                    position="0.035 0.9 0.03"
-                    rotation="0 90 0"
-                    play="true"
-                ></a-video
+                    scale="1.4 0.787 0"
+                ></a-entity
             ></a-entity>
 
             <a-entity
-                id="cannara02"
-                animation-mixer="loop: repeat"
-                gltf-model="#totem-colori"
+                gltf-model="#totem"
+                position="0 0 6"
                 scale="1.4 1.4 1.4"
-                gps-entity-place="latitude: 42.994244; longitude: 12.582300;"
-                ><a-video
-                    src="#video2"
-                    width="1.4"
-                    height="0.787"
-                    position="0.035 0.9 0.03"
+                gps-entity-place="latitude: 42.918713; longitude: 12.724901;"
+                ><a-entity
+                    videohandler
+                    id="random"
+                    material="src: #video2;"
+                    geometry="primitive: plane"
+                    position="0.035 0.9 0.02"
                     rotation="0 90 0"
-                    play="true"
-                ></a-video
+                    scale="1.4 0.787 0"
+                ></a-entity
             ></a-entity>
 
             <a-camera
                 rotation-reader
                 look-controls-enabled="false"
                 arjs-look-controls="smoothingFactor: 0.1"
-                gps-camera="alert: true; positionMinAccuracy: 10; gpsMinDistance: 3; gpsTimeInterval: 1500"
+                gps-camera="alert: true; positionMinAccuracy: 10; gpsMinDistance: 3; gpsTimeInterval: 1500; simulateLatitude: 41.790321; simulateLongitude: 12.423170"
             ></a-camera>
         </a-scene>
     </body>
